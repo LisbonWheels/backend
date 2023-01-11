@@ -9,6 +9,18 @@ const getAllCars = (req, res) => {
         });
 }
 
+const getCarById = (req, res) => {
+    const id = req.params.id;
+
+    CarsModel.getAllById(id)
+        .then(([result]) => res.status(200).send(result))
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send("Error getting the cars");
+        });
+}
+
 module.exports = {
-    getAllCars
+    getAllCars,
+    getCarById
 };
