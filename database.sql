@@ -1,4 +1,27 @@
-INSERT INTO cars (company_id, Name, Number_passengers, Number_doors, gear_box, Km, Price, available, image)
+CREATE TABLE company (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(400) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+CREATE TABLE cars (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+company_id INT NOT NULL,
+name VARCHAR(400) NOT NULL,
+number_passengers INT NOT NULL,
+number_doors INT NOT NULL,
+gear_box VARCHAR(400),
+Km INT NOT NULL,
+Price INT NOT NULL,
+available VARCHAR(400) NULL,
+image VARCHAR(400) NULL,
+FOREIGN KEY (company_id) REFERENCES company(id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO company (name)
+VALUES ("Hertz"),
+("Europcar");
+
+INSERT INTO cars (company_id, name, number_passengers, number_doors, gear_box, km, price, available, image)
 VALUES (1, "Ferrari - Enzo", 2, 3, "Manual", 1500, 1200.00, "True", "https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg"),
 (1, "Audi - A4", 5, 5, "Manual", 25000, 140.00, "True", "https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
 (1, "Range Rover - Evoque", 5, 3, "Automatic", 10000, 195.00, "True", "https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
