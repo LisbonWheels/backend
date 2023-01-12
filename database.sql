@@ -29,3 +29,15 @@ VALUES ("Hertz", "Ferrari - Enzo", 2, 3, "Manual", 1500, 1200, "True", '2023-01-
 ("Europcar", "Alfa Romeo - 1935", 2, 2, "Manual", 125800, 1800, "True",'2023-07-04', '2023-07-04', "https://images.pexels.com/photos/1008659/pexels-photo-1008659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
 ("Europcar", "Volkswagen - Beetle", 5, 3, "Manual", 135000, 340, "True",'2023-07-04', '2023-07-04', "https://images.pexels.com/photos/1209774/pexels-photo-1209774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
 ("Europcar", "Jeep - Grand Cherokee", 5, 3, "Automatic", 8320, 230, "True", '2023-07-04', '2023-07-04',"https://images.pexels.com/photos/119435/pexels-photo-119435.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+
+
+CREATE TABLE company (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+company_name VARCHAR(400) NOT NULL,
+number_partners INT NOT NULL,
+company_image VARCHAR(400) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO company (company_name, number_partners, company_image) VALUES 
+("TOP RENT-A-CAR", 7, "https://toprentacar.bg/images/header/logo.png"),
+("Rentalcars.com", 4, "https://cdn.rcstatic.com/images/site_graphics/newsite/mobile/logos/rc-logo-small--white.svg")
