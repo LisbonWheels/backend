@@ -21,12 +21,14 @@ const getCarById = (req, res) => {
 };
 
 const addCar = (req, res) => {
+  if(req.body !== undefined) {
   CarsModel.add(req.body)
     .then((result) => res.status(200).send(result))
     .catch((err) => {
       console.error(err);
       res.status(500).send("Error posting the new car");
     });
+  }
 };
 
 const updateCarAvailability = (req, res) => {
@@ -64,20 +66,21 @@ const updateCar = (req, res) => {
 }
 
 const deleteCar = (req, res) => {
-    const id = req.params.id;
-  
-    CarsModel.deleteItem(id)
-      .then(results => {
-        if(results.affectedRows){
-            res.status(202).send("The album with id "+id+" was deleted");
-        } else {
-            res.sendStatus(404)
-        }})
-      .catch((err) => {
-        console.error(err);
-        res.status(500).send("Error deleting the car");
-      });
-  };
+  const id = req.params.id;
+console.log(id);
+  CarsModel.deleteCar(id)
+    .then((results) => {
+      console.log(results);
+      if (results.affectedRows === 0) {
+      res.status(404).send("Not found");
+    } else {
+      res.status(200).send(id);
+    }})
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error editing the car information");
+    });
+}
 
 module.exports = {
     getAllCars,

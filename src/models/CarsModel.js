@@ -20,8 +20,8 @@ const add = (body) => {
 	return connection.query("INSERT INTO cars SET ?", [body]).then(([results]) => results);
 }
 
-const deleteItem = (id) => {
-	return connection.query("DELETE FROM cars WHERE id = ?", [id]).then(([results]) => results);
+const deleteCar = (id)=>{
+	return connection.query("DELETE FROM cars WHERE id = ?;", [id]).then(([results]) => results);
 }
 
 module.exports = {
@@ -30,5 +30,5 @@ module.exports = {
 	updateAvailability,
 	update,
 	add,
-	deleteItem
+	deleteCar
 };
