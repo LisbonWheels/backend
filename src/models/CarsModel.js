@@ -15,8 +15,13 @@ const updateAvailability = (status, id) => {
 const update = (body, id) => {
 	return connection.query("UPDATE cars SET ? WHERE id = ?", [body, id]).then(([results]) => results);
 };
-const add = (body)=>{
+
+const add = (body) => {
 	return connection.query("INSERT INTO cars SET ?", [body]).then(([results]) => results);
+}
+
+const deleteItem = (id) => {
+	return connection.query("DELETE FROM cars WHERE id = ?", [id]).then(([results]) => results);
 }
 
 module.exports = {
@@ -24,5 +29,6 @@ module.exports = {
 	getAllById,
 	updateAvailability,
 	update,
-	add
+	add,
+	deleteItem
 };
